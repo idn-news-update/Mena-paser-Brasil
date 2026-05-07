@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Configuração do Balão no WhatsApp (Preview) -->
-    <title>Mena Paser Brasil - Menu</title>
-    <meta property="og:title" content="Mena Paser Brasil 🇧🇷🇮🇩">
-    <meta property="og:description" content="Klik untuk melihat menu lezat kami dan pesan langsung!">
+    <!-- Configuração do Balão no WhatsApp -->
+    <title>Warung Mena Paser Brasil - Menu</title>
+    <meta property="og:title" content="Warung Mena Paser Brasil 🇧🇷🇮🇩">
+    <meta property="og:description" content="Warung Mena Paser Brasil: Klik untuk melihat menu lezat kami!">
     <meta property="og:image" content="https://i.ibb.co.com/sdxdNyWq/Whats-App-Image-2026-05-07-at-09-59-51.jpg">
     <meta property="og:type" content="website">
 
@@ -90,7 +90,6 @@
         .item-name { font-weight: 600; font-size: 17px; }
         .item-price { color: #e67e22; font-weight: bold; }
 
-        /* ANIMAÇÕES PULSANTES */
         @keyframes pulse-green {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
@@ -114,6 +113,7 @@
             border: none;
             cursor: pointer;
             transition: 0.3s;
+            width: calc(100% - 50px); /* Volta ao tamanho original que ocupa a largura total com margens */
         }
 
         .btn-order {
@@ -142,28 +142,23 @@
             color: #7f8c8d;
             border-top: 1px solid #eee;
         }
-
-        .footer-sales a { color: #3498db; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Banner Principal -->
-    <img src="https://i.ibb.co.com/YB9XJVNt/Whats-App-Image-2026-05-07-at-09-42-31.jpg" class="banner-img" alt="Banner Mena Paser Brasil">
+    <img src="https://i.ibb.co.com/YB9XJVNt/Whats-App-Image-2026-05-07-at-09-42-31.jpg" class="banner-img" alt="Banner">
 
-    <!-- Foto de Perfil -->
     <div class="profile-section">
         <img src="https://i.ibb.co.com/sdxdNyWq/Whats-App-Image-2026-05-07-at-09-59-51.jpg" class="profile-img" alt="Proprietários">
     </div>
 
-    <div class="store-name">Mena Paser Brasil</div>
+    <div class="store-name">Warung Mena Paser Brasil</div>
     
     <div class="security-badge">
         <span style="margin-right: 5px;">🔒</span> Transaksi Aman & Terpercaya
     </div>
 
-    <!-- Menu de Preços -->
     <div class="menu-list">
         <div class="menu-item">
             <span class="item-name">Gado-gado</span>
@@ -179,22 +174,21 @@
         </div>
     </div>
 
-    <!-- Botão Fazer Pedido (Abre na mesma aba) -->
-    <a href="https://wa.me/6281241431977?text=Halo!%20Saya%20mau%20pesan.%20Apa%20menu%20spesial%20hari%20ini?" class="btn btn-order">
+    <!-- Botão de Pedido Restaurado -->
+    <button onclick="directOrder()" class="btn btn-order">
         🛒 Pesan Sekarang (WhatsApp)
-    </a>
+    </button>
 
-    <!-- Botão Compartilhar (Abre na mesma aba) -->
-    <button onclick="shareDirectToWA()" class="btn btn-share" style="width: calc(100% - 50px);">
+    <!-- Botão de Compartilhar Restaurado -->
+    <button onclick="directShare()" class="btn btn-share">
         📲 Bagikan ke Teman
     </button>
 
-    <!-- Espaço Adsterra -->
     <div class="adsterra-space">
+        <!-- Cole o código da Adsterra aqui -->
         <p style="font-size: 10px; color: #999;">ADVERTISEMENT</p>
     </div>
 
-    <!-- Seção de Venda -->
     <div class="footer-sales">
         Mau buat kartu nama digital seperti ini?<br>
         Hubungi kami no: <b>+62 857-5275-4317</b>
@@ -202,12 +196,16 @@
 </div>
 
 <script>
-    function shareDirectToWA() {
-        var shareText = "Halo! Coba lihat menu lezat dari Mena Paser Brasil di sini: " + window.location.href;
-        var whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(shareText);
-        
-        // Altera a localização da janela ATUAL para o WhatsApp
-        window.location.href = whatsappUrl;
+    function directOrder() {
+        var msg = "Halo! Saya mau pesan. Apa menu spesial hari ini?";
+        var url = "whatsapp://send?phone=6281241431977&text=" + encodeURIComponent(msg);
+        window.location.replace(url);
+    }
+
+    function directShare() {
+        var shareText = "Halo! Coba lihat menu lezat dari Warung Mena Paser Brasil di sini: " + window.location.href;
+        var url = "whatsapp://send?text=" + encodeURIComponent(shareText);
+        window.location.replace(url);
     }
 </script>
 
